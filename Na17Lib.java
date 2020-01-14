@@ -37,8 +37,8 @@ public class Na17Lib {
         
     }
 
-    public static boolean isPrime(int x){
-        root = 
+    public static boolean isPrime(int number){
+        limit = Math.pow(number, 1/2);
     }
 
     public static int getBiggest(int[] arr){
