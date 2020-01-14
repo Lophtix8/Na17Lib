@@ -1,6 +1,6 @@
-package na17lab;
+package na17lib;
 
-public class Na17Lab {
+public class Na17Lib {
 
     public static void main(String[] args) {
         int[] array = {2,4,1,6,3,8};
@@ -34,7 +34,11 @@ public class Na17Lab {
     }
 
     public static HashMap<Integer, Integer> getDivisors(int x){
-                  
+        
+    }
+
+    public static boolean isPrime(int x){
+        root = 
     }
 
     public static int getBiggest(int[] arr){
