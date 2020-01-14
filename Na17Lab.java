@@ -9,7 +9,7 @@ public class Na17Lab {
     }
 
 
-    /*public static HashPrimes getPrimes(int x){
+    /*public static int[] getPrimes(int x){
         return null;
     }
 
@@ -33,13 +33,9 @@ public class Na17Lab {
         return sum;
     }
 
-    /*public static int[] getFactors(int x){
-            
+    public static HashMap<Integer, Integer> getDivisors(int x){
+                  
     }
-
-    public static int[] getFactors(long x){
-        
-    }*/
 
     public static int getBiggest(int[] arr){
         int biggest = arr[0];
@@ -61,10 +57,7 @@ public class Na17Lab {
         return smallest;
     }
 
-    /*public static boolean isDivisibleBy(int d, int x){
-
-    }
-
+    /*
     public static int nFac(int n){
 
     }
