@@ -1,4 +1,4 @@
-package na17lib;
+//package na17lib;
 
 public class Na17Lib {
 
@@ -32,7 +32,7 @@ public class Na17Lib {
         }
         return sum;
     }
-
+    /*
     public static HashMap<Integer, Integer> getDivisors(int x){
         
     }
@@ -40,7 +40,7 @@ public class Na17Lib {
     public static boolean isPrime(int number){
         limit = Math.pow(number, 1/2);
     }
-
+    */
     public static int getBiggest(int[] arr){
         int biggest = arr[0];
         for (int i : arr){
@@ -59,6 +59,10 @@ public class Na17Lib {
             }
         }
         return smallest;
+    }
+
+    public static boolean isDivisible(int x, int d){
+        return x % d == 0;
     }
 
     /*
