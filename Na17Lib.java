@@ -1,14 +1,23 @@
 //package na17lib;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Na17Lib {
 
     public static void main(String[] args) {
-        int[] array = {2,4,1,6,3,8};
-        System.out.println(getBiggest(array));
-        System.out.println(getSmallest(array));
+        System.out.println(generatePrimes(100, 2));
     }
 
+    public static List<Integer> generatePrimes(int upperLimit, int lowerLimit) {
+        List<Integer> primes = new ArrayList<Integer>();
 
+        for (int i = lowerLimit; i <= upperLimit; i++) {
+            primes.add(i);
+        }
+
+        return primes;
+    }
     /*public static int[] getPrimes(int x){
         return null;
     }
