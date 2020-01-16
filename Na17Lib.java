@@ -47,7 +47,7 @@ public class Na17Lib {
 //    }
 //    public  static int changeBase(int x, int fromBase, int toBase){
 //        
-//    }
+//    }*/
 
     public static int MGN(int x, int y){
         return x * y / GCD(x, y);
@@ -71,7 +71,7 @@ public class Na17Lib {
         return 1;
     }
 
-    /*public static int numSum(int[] numbers){
+    public static int numSum(int[] numbers){
         int sum = 0;
         for (int i : numbers) {
             sum += i;
