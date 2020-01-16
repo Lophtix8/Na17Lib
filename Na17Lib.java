@@ -1,23 +1,31 @@
 //package na17lib;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Na17Lib {
 
     public static void main(String[] args) {
-        System.out.println(generatePrimes(100, 2));
+        System.out.println(generatePrimes(100));
     }
 
-    public static List<Integer> generatePrimes(int upperLimit, int lowerLimit) {
-        List<Integer> primes = new ArrayList<Integer>();
-
-        for (int i = lowerLimit; i <= upperLimit; i++) {
-            primes.add(i);
+    public static ArrayList<Integer> generatePrimes(int x) {
+        ArrayList<Integer> primes = new ArrayList();
+        boolean[] isP = new boolean[x];
+        Arrays.fill(isP, true);
+        isP[0] = isP[1] = false;
+        for (int i = 2; i < x; i++){
+            if (isP[i]) {
+                primes.add(i);
+                for (int k = i + i; k < x; k += i){
+                    isP[k] = false;
+                }
+            }
         }
-
         return primes;
     }
+
     /*public static int[] getPrimes(int x){
         return null;
     }
@@ -41,6 +49,7 @@ public class Na17Lib {
         }
         return sum;
     }
+
     /*
     public static HashMap<Integer, Integer> getDivisors(int x){
         
@@ -50,6 +59,7 @@ public class Na17Lib {
         limit = Math.pow(number, 1/2);
     }
     */
+
     public static int getBiggest(int[] arr){
         int biggest = arr[0];
         for (int i : arr){
