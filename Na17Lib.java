@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Na17Lib {
 
+  //Test bunny Drakbak has appeared
+
     public static void main(String[] args) {
         //System.out.println(isPrime(0));
         changeBase(10, 2, 3);
@@ -26,7 +28,7 @@ public class Na17Lib {
         }
         return primes;
     }
-    
+
     public static ArrayList<Integer> getFactors(int x){
         ArrayList<Integer> factors = new ArrayList<Integer>();
         for (int i = 2; i <= x/2; i++) {
@@ -45,27 +47,22 @@ public class Na17Lib {
     }
 //    public static int[] getPrimes(int x){
 //        return null;
+
 //    }*/
-    public  static int changeBase(int x, int fromBase, int toBase){
-        String f = "" + x;
-        int fi = Integer.parseInt(f, fromBase);
-        
-        System.out.println("" + fi);
-        
-    }
+
 
     public static int MGN(int x, int y){
         return x * y / GCD(x, y);
     }
 
-    public static int GCD(int x, int y){  
+    public static int GCD(int x, int y){
 //        for (int i = Math.min(x, y); i >= 2 ; i--) {
 //            if(x % i == 0 && y % i == 0){
 //                return i;
 //            }
 //        }
 //        return 1;
-        
+
         for (int i = 1; i < Math.min(x, y); i++) { //Snabbare metod
             if(Math.min(x, y) % i == 0){
                 if(y % (Math.min(x, y)/i) == 0){
@@ -93,7 +90,7 @@ public class Na17Lib {
     public static boolean isPrime(int x){
         return (x <= 1) ? false : (getFactors(x).isEmpty());
     }
-    
+
     public static int getBiggest(int[] arr){
         int biggest = arr[0];
         for (int i : arr){
