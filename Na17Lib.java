@@ -7,7 +7,8 @@ import java.util.List;
 public class Na17Lib {
 
     public static void main(String[] args) {
-        System.out.println(isPrime(0));
+        //System.out.println(isPrime(0));
+        changeBase(10, 2, 3);
     }
 
     public static ArrayList<Integer> generatePrimes(int x) {
@@ -44,10 +45,14 @@ public class Na17Lib {
     }
 //    public static int[] getPrimes(int x){
 //        return null;
-//    }
-//    public  static int changeBase(int x, int fromBase, int toBase){
-//        
 //    }*/
+    public  static int changeBase(int x, int fromBase, int toBase){
+        String f = "" + x;
+        int fi = Integer.parseInt(f, fromBase);
+        
+        System.out.println("" + fi);
+        
+    }
 
     public static int MGN(int x, int y){
         return x * y / GCD(x, y);
