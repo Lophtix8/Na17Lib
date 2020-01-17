@@ -1,16 +1,21 @@
-//package eulerproblems;
+package eulerproblems;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Na17Lib {
 
-  //Test bunny Drakbak has appeared
-
     public static void main(String[] args) {
         //System.out.println(isPrime(0));
-        changeBase(10, 2, 3);
+        HashMap<Integer, Integer> factors = getPrimeFactorsAsHash(450);
+        
+        for( Map.Entry<Integer,Integer> e : factors.entrySet()){
+            System.out.println(e);
+        }
+        //System.out.println(changeBase(111, 2, 3));
     }
 
     public static ArrayList<Integer> generatePrimes(int x) {
@@ -28,7 +33,7 @@ public class Na17Lib {
         }
         return primes;
     }
-
+    
     public static ArrayList<Integer> getFactors(int x){
         ArrayList<Integer> factors = new ArrayList<Integer>();
         for (int i = 2; i <= x/2; i++) {
@@ -38,31 +43,57 @@ public class Na17Lib {
         }
         return factors;
     }
+    
+    public static ArrayList<Integer> getPrimeFactors(int x){
+        ArrayList<Integer> primes = new ArrayList<Integer>();
+        for (int i = 2; i <= x/2; i++) {
+            if(x % i == 0 && isPrime(i)){
+                primes.add(i);
+            }
+        }
+        return primes;
+    }
+    
+    public static HashMap<Integer, Integer> getPrimeFactorsAsHash(int x){
+        HashMap<Integer, Integer> hash = new HashMap();
+        ArrayList<Integer> primes = getPrimeFactors(x);
+        
+        for (int i = 0; i < primes.size(); i++) {
+            int c = 0;
+            while(x % primes.get(i) == 0){
+                x /= primes.get(i);
+                c++;
+            }
+            hash.put(primes.get(i), c);
+        }
+        
+        return hash;
+    }
+    
     /*public static int[] getPrimes(int x){
         return null;
+    }*/
+
+    public static int changeBase(int x, int fromBase, int toBase){
+        return Integer.parseInt(Integer.toString(Integer.parseInt("" + x, fromBase), toBase), 10);
     }
-
-    public  static int changeBase(int x, int fromBase, int toBase){
-
+    
+    public static String changeBase(String x, int fromBase, int toBase){
+        return Integer.toString(Integer.parseInt(x, fromBase), toBase);
     }
-//    public static int[] getPrimes(int x){
-//        return null;
-
-//    }*/
-
 
     public static int MGN(int x, int y){
         return x * y / GCD(x, y);
     }
 
-    public static int GCD(int x, int y){
+    public static int GCD(int x, int y){  
 //        for (int i = Math.min(x, y); i >= 2 ; i--) {
 //            if(x % i == 0 && y % i == 0){
 //                return i;
 //            }
 //        }
 //        return 1;
-
+        
         for (int i = 1; i < Math.min(x, y); i++) { //Snabbare metod
             if(Math.min(x, y) % i == 0){
                 if(y % (Math.min(x, y)/i) == 0){
@@ -81,16 +112,10 @@ public class Na17Lib {
         return sum;
     }
 
-    /*
-    public static HashMap<Integer, Integer> getDivisors(int x){
-
-    }
-    */
-
     public static boolean isPrime(int x){
         return (x <= 1) ? false : (getFactors(x).isEmpty());
     }
-
+    
     public static int getBiggest(int[] arr){
         int biggest = arr[0];
         for (int i : arr){
