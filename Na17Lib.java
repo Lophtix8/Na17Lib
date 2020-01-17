@@ -31,7 +31,7 @@ public class Na17Lib {
     }
 
     public  static int changeBase(int x, int fromBase, int toBase){
-        
+
     }
 
     public static int MGN(int x, int y){
@@ -52,7 +52,7 @@ public class Na17Lib {
 
     /*
     public static HashMap<Integer, Integer> getDivisors(int x){
-        
+
     }
 
     public static boolean isPrime(int number){
