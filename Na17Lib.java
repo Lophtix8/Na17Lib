@@ -1,5 +1,6 @@
-package eulerproblems;
+//package eulerproblems;
 
+import javax.imageio.ImageTranscoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,13 +10,18 @@ import java.util.Map;
 public class Na17Lib {
 
     public static void main(String[] args) {
+        /*
         //System.out.println(isPrime(0));
         HashMap<Integer, Integer> factors = getPrimeFactorsAsHash(450);
-        
+
         for( Map.Entry<Integer,Integer> e : factors.entrySet()){
             System.out.println(e);
         }
         System.out.println(changeBase(111, 2, 3));
+
+         */
+        System.out.println(fib(50));
+
     }
 
     public static ArrayList<Integer> generatePrimes(int x) {
@@ -157,5 +163,8 @@ public class Na17Lib {
         return (n == 0) ? 1 : n * nFac(n - 1);
     }
 
-
+    public static long fib(int x) {
+        // Shitstorm deluxe (formel från Wikipedia)
+        return (long) Math.floor(Math.pow((1+Math.sqrt(5))/2, x)/Math.sqrt(5) + 0.5f);
+    }
 }
