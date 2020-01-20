@@ -15,7 +15,7 @@ public class Na17Lib {
         for( Map.Entry<Integer,Integer> e : factors.entrySet()){
             System.out.println(e);
         }
-        //System.out.println(changeBase(111, 2, 3));
+        System.out.println(changeBase(111, 2, 3));
     }
 
     public static ArrayList<Integer> generatePrimes(int x) {
@@ -37,6 +37,15 @@ public class Na17Lib {
     public static ArrayList<Integer> getFactors(int x){
         ArrayList<Integer> factors = new ArrayList<Integer>();
         for (int i = 2; i <= x/2; i++) {
+            if(x % i == 0){
+                factors.add(i);
+            }
+        }
+        return factors;
+    }
+    public static ArrayList<Long> getFactors(long x){
+        ArrayList<Long> factors = new ArrayList();
+        for (long i = 2; i <= x/2; i++) {
             if(x % i == 0){
                 factors.add(i);
             }
