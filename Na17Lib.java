@@ -11,7 +11,7 @@ public class Na17Lib {
     public static void main(String[] args) {
         //System.out.println(isPrime(0));
         HashMap<Integer, Integer> factors = getPrimeFactorsAsHash(450);
-        
+
         for( Map.Entry<Integer,Integer> e : factors.entrySet()){
             System.out.println(e);
         }
@@ -33,7 +33,34 @@ public class Na17Lib {
         }
         return primes;
     }
-    
+
+    public static int[] getPrimesBetween(long s, long e) {
+        ArrayList<Integer> ps = new ArrayList();
+        if (s < 2 && 2 < e) ps.add(2);
+        if (s < 3 && 3 < e) ps.add(3);
+
+        for (int i = (int) s / 6 + 1; i < e / 6 + 1; i++) {
+            boolean exists = false;
+            for (Integer j : ps) {
+                if ((6 * i - 1) % j == 0) exists = true;
+            }
+            if (!exists && s < 6 * i) ps.add(6 * i - 1);
+
+            exists = false;
+            for (Integer j : ps) {
+                if ((6 * i + 1) % j == 0) exists = true;
+            }
+            if (!exists && 6 * i < e) ps.add(6 * i + 1);
+
+        }
+        Integer[] primes = ps.toArray(new Integer[ps.size()]);
+        int[] plist = new int[primes.length];
+        for (int i = 0; i < primes.length; i++) {
+            plist[i] = primes[i];
+        }
+        return plist;
+    }
+
     public static ArrayList<Integer> getFactors(int x){
         ArrayList<Integer> factors = new ArrayList<Integer>();
         for (int i = 2; i <= x/2; i++) {
@@ -43,7 +70,7 @@ public class Na17Lib {
         }
         return factors;
     }
-    
+
     public static ArrayList<Integer> getPrimeFactors(int x){
         ArrayList<Integer> primes = new ArrayList<Integer>();
         for (int i = 2; i <= x/2; i++) {
@@ -53,11 +80,11 @@ public class Na17Lib {
         }
         return primes;
     }
-    
+
     public static HashMap<Integer, Integer> getPrimeFactorsAsHash(int x){
         HashMap<Integer, Integer> hash = new HashMap();
         ArrayList<Integer> primes = getPrimeFactors(x);
-        
+
         for (int i = 0; i < primes.size(); i++) {
             int c = 0;
             while(x % primes.get(i) == 0){
@@ -66,10 +93,10 @@ public class Na17Lib {
             }
             hash.put(primes.get(i), c);
         }
-        
+
         return hash;
     }
-    
+
     /*public static int[] getPrimes(int x){
         return null;
     }*/
@@ -77,7 +104,7 @@ public class Na17Lib {
     public static int changeBase(int x, int fromBase, int toBase){
         return Integer.parseInt(Integer.toString(Integer.parseInt("" + x, fromBase), toBase), 10);
     }
-    
+
     public static String changeBase(String x, int fromBase, int toBase){
         return Integer.toString(Integer.parseInt(x, fromBase), toBase);
     }
@@ -86,14 +113,14 @@ public class Na17Lib {
         return x * y / GCD(x, y);
     }
 
-    public static int GCD(int x, int y){  
+    public static int GCD(int x, int y){
 //        for (int i = Math.min(x, y); i >= 2 ; i--) {
 //            if(x % i == 0 && y % i == 0){
 //                return i;
 //            }
 //        }
 //        return 1;
-        
+
         for (int i = 1; i < Math.min(x, y); i++) { //Snabbare metod
             if(Math.min(x, y) % i == 0){
                 if(y % (Math.min(x, y)/i) == 0){
@@ -115,7 +142,7 @@ public class Na17Lib {
     public static boolean isPrime(int x){
         return (x <= 1) ? false : (getFactors(x).isEmpty());
     }
-    
+
     public static int getBiggest(int[] arr){
         int biggest = arr[0];
         for (int i : arr){
