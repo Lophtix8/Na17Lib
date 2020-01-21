@@ -10,17 +10,6 @@ import java.util.Map;
 public class Na17Lib {
 
     public static void main(String[] args) {
-        /*
-        //System.out.println(isPrime(0));
-        HashMap<Integer, Integer> factors = getPrimeFactorsAsHash(450);
-
-        for( Map.Entry<Integer,Integer> e : factors.entrySet()){
-            System.out.println(e);
-        }
-        System.out.println(changeBase(111, 2, 3));
-
-         */
-        System.out.println(Arrays.toString(fibList(3, 7)));
 
     }
 
