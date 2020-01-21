@@ -20,12 +20,12 @@ public class Na17Lib {
         System.out.println(changeBase(111, 2, 3));
 
          */
-        System.out.println(fib(50));
+        System.out.println(Arrays.toString(fibList(3, 7)));
 
     }
 
     public static ArrayList<Integer> generatePrimes(int x) {
-        ArrayList<Integer> primes = new ArrayList();
+        ArrayList primes = new ArrayList();
         boolean[] isP = new boolean[x];
         Arrays.fill(isP, true);
         isP[0] = isP[1] = false;
@@ -49,6 +49,7 @@ public class Na17Lib {
         }
         return factors;
     }
+
     public static ArrayList<Long> getFactors(long x){
         ArrayList<Long> factors = new ArrayList();
         for (long i = 2; i <= x/2; i++) {
@@ -70,9 +71,9 @@ public class Na17Lib {
     }
     
     public static HashMap<Integer, Integer> getPrimeFactorsAsHash(int x){
-        HashMap<Integer, Integer> hash = new HashMap();
+        HashMap hash = new HashMap();
         ArrayList<Integer> primes = getPrimeFactors(x);
-        
+
         for (int i = 0; i < primes.size(); i++) {
             int c = 0;
             while(x % primes.get(i) == 0){
@@ -128,7 +129,7 @@ public class Na17Lib {
     }
 
     public static boolean isPrime(int x){
-        return (x <= 1) ? false : (getFactors(x).isEmpty());
+        return (x > 1) && (getFactors(x).isEmpty());
     }
     
     public static int getBiggest(int[] arr){
@@ -163,8 +164,27 @@ public class Na17Lib {
         return (n == 0) ? 1 : n * nFac(n - 1);
     }
 
-    public static long fib(int x) {
+    public static int fib(int x) {
         // Shitstorm deluxe (formel från Wikipedia)
-        return (long) Math.floor(Math.pow((1+Math.sqrt(5))/2, x)/Math.sqrt(5) + 0.5f);
+        return (int) Math.floor(Math.pow((1+Math.sqrt(5))/2, x)/Math.sqrt(5) + 0.5f);
+    }
+
+    public static long fib(long x) {
+        // Shitstorm deluxe (formel från Wikipedia)
+        return (long) Math.floor(Math.pow((1 + Math.sqrt(5)) / 2, x) / Math.sqrt(5) + 0.5f);
+    }
+
+    public static int[] fibList(int x, int z) {
+        int[] fibs = new int[z-x+1];
+        fibs[0] = fib(x);
+        fibs[1] = fib(x+1);
+        for (int i = 2; i <= z-x; i++) {
+            fibs[i] = fibs[i-2] + fibs[i-1];
+        }
+        return fibs;
+    }
+
+    public static int nbrOfDigits(int x) {
+        return (int) Math.floor(Math.log10(x)) + 1;
     }
 }
