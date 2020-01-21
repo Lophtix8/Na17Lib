@@ -97,10 +97,6 @@ public class Na17Lib {
         return hash;
     }
 
-    /*public static int[] getPrimes(int x){
-        return null;
-    }*/
-
     public static int changeBase(int x, int fromBase, int toBase){
         return Integer.parseInt(Integer.toString(Integer.parseInt("" + x, fromBase), toBase), 10);
     }
@@ -173,6 +169,33 @@ public class Na17Lib {
 
     public static long nFac(long n){
         return (n == 0) ? 1 : n * nFac(n - 1);
+
+
+    }
+
+    public static int[] getUniqueFactors(int n) {
+        int[] primes = Arrays.copyOf(getPrimesBetween(0, n), getPrimesBetween(0, n).length);
+        ArrayList<Integer> factors = new ArrayList();
+        for (int i = 0; i < primes.length; i++) {
+            if (n % primes[i] == 0) {
+                factors.add(primes[i]);
+            }
+        }
+        Integer[] unique_factors = factors.toArray(new Integer[factors.size()]);
+        int[] u_f = new int[unique_factors.length];
+        for (int i = 0; i < unique_factors.length; i++) {
+            u_f[i] = unique_factors[i];
+        }
+        return u_f;
+    }
+
+    public static int EulersTotientFunction(int n) {
+        int[] factors=Arrays.copyOf(getUniqueFactors(n), getUniqueFactors(n).length);
+        double t=n;
+        for (int i = 0; i < factors.length; i++) {
+            t*=1.0-1.0/factors[i];
+        }
+        return (int) t;
     }
 
 
